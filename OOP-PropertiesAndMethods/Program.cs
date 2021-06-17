@@ -6,7 +6,9 @@ namespace OOP_PropertiesAndMethods
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Person p = new Person();
+            p.FirstName = "Abcd";
+            p.Print();
         }
     }
 }
