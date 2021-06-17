@@ -6,8 +6,10 @@ namespace OOP_PropertiesAndMethods
     {
         static void Main(string[] args)
         {
-            Person p = new Person();
-            p.FirstName = "Abcd";
+            Person p = new Person("Name", "LastName");
+            p.Print();
+
+            p.ChangeIdentity("abc");
             p.Print();
         }
     }

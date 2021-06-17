@@ -8,7 +8,12 @@ namespace OOP_PropertiesAndMethods
 {
     public class Person
     {
-        private string firstName;
+        public Person(string name, string lastName)
+        {
+            Name = name;
+            LastName = lastName;
+        }
+        private string _firstName;
         public string FirstName
         {
             //accesori
@@ -18,27 +23,33 @@ namespace OOP_PropertiesAndMethods
                 //cand cineva incearca sa citeasca proprietatea
                 Console.WriteLine("Executing FirtsName.get");
 
-                if (string.IsNullOrWhiteSpace(firstName))
-                {
-                    //valoare de default
-                    firstName = "Test firstName";
-                }
-
-                return firstName;
+                return string.IsNullOrEmpty(_firstName) ? "Test FirstName" : _firstName;
+                
             }
             //sa se poata scrie doar din interiorul clasei
-            private set
-            {
-                //cand cineva incearca sa scrie proprietatea
-                Console.WriteLine("Executing FirtsName.set");
+            //private set
+            //{
+            //    //cand cineva incearca sa scrie proprietatea
+            //    Console.WriteLine("Executing FirtsName.set");
 
-                if (string.IsNullOrEmpty(value))
-                {
-                    value = "default FirstName";
-                }
+            //    firstName = value ?? string.Empty;
+            //}
+        }
 
-                firstName = value;
-            }
+        //properietati auto-implementate
+        public string LastName{ get; }
+
+        //poate fi setata doar in constructor
+        //este un read-only
+        //nu STATIC!!!!
+        //obiectul devine imutabil
+        public string Name { get; }
+
+        public string FullName { get { return $"{FirstName} {LastName}"; } }
+
+        public void ChangeIdentity(string firstName)
+        {
+            _firstName = firstName ?? string.Empty;
         }
 
         public void Print() 
