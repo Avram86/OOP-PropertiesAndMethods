@@ -26,7 +26,8 @@ namespace OOP_PropertiesAndMethods
 
                 return firstName;
             }
-            set
+            //sa se poata scrie doar din interiorul clasei
+            private set
             {
                 //cand cineva incearca sa scrie proprietatea
                 Console.WriteLine("Executing FirtsName.set");
